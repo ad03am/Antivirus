@@ -2,8 +2,6 @@ import os
 
 from removing import remove
 
-# tekst
-
 
 class File:
     def __init__(self, name, path, status, hash):
