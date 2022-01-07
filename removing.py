@@ -22,10 +22,8 @@ def file_lines(file):
         new_lines.append(i.strip())
     return new_lines
 
-print(file_lines('test_file2.txt'))
-
 print(files_in_dir('test_folder'))
-remove('test_file2.txt', 'wirus')
+
 
 
 class File:

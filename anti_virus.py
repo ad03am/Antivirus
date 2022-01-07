@@ -40,21 +40,21 @@ class Directory:
 
 
 class AntiVirus:
-    def __init__(self, directory):
+    def __init__(self, directory:Directory):
         self._directory = directory
 
     def directory(self):
         return self._directory
 
     def full_scan(self):
-        # files = os.listdir(f'{self._directory}')
-        files = Directory.files_in_dir()
+        files = os.listdir(f'{self._directory}')
+        # files = self._directory.files_in_dir()
         for i in files:
             remove(i, 'wirus')
 
     def index(self):
         # dodać scieżki, stan pliku i hash
-        files = Directory.files_in_dir()
+        files = self._directory.files_in_dir()
         self._index = []
         for i in files:
             self._index.append([i])
@@ -75,3 +75,7 @@ class AntiVirus:
         for i in lines:
             new_lines.append(i.strip())
         return new_lines
+
+
+if __name__ == "__main__":
+    pass
