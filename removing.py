@@ -1,4 +1,5 @@
 import os
+from datetime import datetime
 
 
 def remove(file, virus):
@@ -12,6 +13,7 @@ def remove(file, virus):
 
 def files_in_dir(directory):
     files = os.listdir(f'{directory}')
+    files.sort()
     return files
 
 def file_lines(file):
@@ -43,3 +45,9 @@ def fileee(file):
 
 if fileee('test_file1.txt') == fileee('test_file2.txt'):
     print(True)
+
+
+a = os.stat('test_folder/test_file1.txt').st_ctime
+
+
+print(datetime.fromtimestamp(a))
