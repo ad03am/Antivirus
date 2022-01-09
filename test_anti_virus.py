@@ -27,7 +27,12 @@ def test_files_in_dir():
 def test_index():
     directory = Directory('test_folder_2')
     directory.files_in_dir()
-    anti_virus = AntiVirus(directory)
-    ind = anti_virus.index()
-    assert ind == ['0le1.txt', '1le2.txt', '2le3.txt', '3le4.txt', '4le5.txt']
+    anti_virus = AntiVirus(directory, 'index.txt', 'time.txt')
+    anti_virus.add_to_index()
 
+
+def test_update_index():
+    directory = Directory('test_folder_2')
+    directory.files_in_dir()
+    anti_virus = AntiVirus(directory, 'index.txt')
+    anti_virus.add_to_index()
