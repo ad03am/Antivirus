@@ -58,9 +58,16 @@ class AntiVirus:
 
     def fast_scan(self):
         # files = os.listdir(f'{self._directory}')
-        files = self._directory._files
-        for i in files:
-            self.remove(i, 'wirus')
+        index = []
+        with open(f'{self._index}', 'r') as index_file:
+            line = index_file.readline().strip()
+            while len(line) > 0:
+                index.append(line)
+                line = index_file.readline().strip()
+            files = self._directory._files
+            for i in range(len(files)):
+                if index[i][-3:] == 'MOD':
+                    self.remove(files[i], 'wirus')
 
     def add_to_index(self):
         # dodać scieżki, stan pliku i hash
@@ -157,4 +164,9 @@ if __name__ == "__main__":
     a = input('czy?')
     if a == 'a':
         anti_virus.update_index()
+        anti_virus.fast_scan()
     print('Done')
+    b = input('czy?')
+    if b == 'b':
+        anti_virus.full_scan()
+
