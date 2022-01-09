@@ -1,4 +1,5 @@
-import os
+'''import os
+from datetime import datetime
 
 
 def remove(file, virus):
@@ -12,6 +13,7 @@ def remove(file, virus):
 
 def files_in_dir(directory):
     files = os.listdir(f'{directory}')
+    files.sort()
     return files
 
 def file_lines(file):
@@ -43,3 +45,45 @@ def fileee(file):
 
 if fileee('test_file1.txt') == fileee('test_file2.txt'):
     print(True)
+
+
+a = os.stat('test_folder/test_file1.txt').st_ctime
+b = os.stat('test_folder/test_file2.txt').st_ctime
+print(a, b)
+print(datetime.fromtimestamp(a))
+print(datetime.fromtimestamp(b))
+if a > b:
+    print(a-b)
+
+files = ['test_file1.txt', 'test_file2.txt', 'test_file3.txt']
+new_files = ['test_file1.txt', 'test_file2.txt', 'test_file3.txt', 'test_file4.txt', 'test_file5.txt']
+
+# sort
+i = 0
+j = 0
+# sprawdzenie która lista jest dłuższa -> ograniczenie pętli
+while j < len(new_files):
+    if i >= len(files):
+        # dodanie do indexu new_files[j] jako nowy/zmodyfikowany
+        j += 1
+    elif files[i] == new_files[j]:
+        # dodanie do indexu new_files[j] w zaleznosci od daty modyfikacji
+        i += 1
+        j += 1
+    elif files[i] in new_files:
+        # dodanie do indexu new_files[j] jako nowy/zmodyfikowany
+        j += 1
+    else:
+        i += 1
+
+
+
+with open(f'index.txt', 'r') as ind:
+    old_index = []
+    line = ind.readline().strip()
+    while len(line) > 0:
+        old_index.append(line)
+        line = ind.readline().strip()
+    print(old_index)
+c = 'abcde'
+print(c[-3:])'''
