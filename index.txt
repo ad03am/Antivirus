@@ -1,5 +1,5 @@
 test_file1.txtMOD
-test_file2.txt
-test_file3.txtMOD
+test_file2.txtMOD
+test_file3.txt
 test_file4.txtMOD
 test_file5.txtMOD
