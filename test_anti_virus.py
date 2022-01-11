@@ -28,6 +28,12 @@ def test_index():
     directory = Directory('test_folder_2')
     directory.files_in_dir()
     anti_virus = AntiVirus(directory, 'index.txt', 'time.txt')
+
+
+def test_index():
+    directory = Directory('test_folder_2')
+    directory.files_in_dir()
+    anti_virus = AntiVirus(directory, 'index.txt', 'time.txt')
     anti_virus.add_to_index()
 
 

@@ -55,6 +55,18 @@ class AntiVirus:
         files = self._directory._files
         for i in files:
             self.remove(i, 'wirus')
+        index = []
+        time = []
+        for i in files:
+            index.append(f'{i}')
+            x = os.stat(f'{self._directory._path}/{i}').st_ctime
+            time.append(x)
+        with open(f'{self._index}', 'w') as index_file:
+            for ind in index:
+                index_file.write(f'{ind}\n')
+        with open(f'{self._time}', 'w') as time_file:
+            for t in time:
+                time_file.write(f'{t}\n')
 
     def fast_scan(self):
         # files = os.listdir(f'{self._directory}')
@@ -68,6 +80,18 @@ class AntiVirus:
             for i in range(len(files)):
                 if index[i][-3:] == 'MOD':
                     self.remove(files[i], 'wirus')
+            index = []
+            time = []
+            for i in files:
+                index.append(f'{i}')
+                x = os.stat(f'{self._directory._path}/{i}').st_ctime
+                time.append(x)
+            with open(f'{self._index}', 'w') as index_file:
+                for ind in index:
+                    index_file.write(f'{ind}\n')
+            with open(f'{self._time}', 'w') as time_file:
+                for t in time:
+                    time_file.write(f'{t}\n')
 
     def add_to_index(self):
         # dodać scieżki, stan pliku i hash
@@ -98,6 +122,7 @@ class AntiVirus:
                 while len(new_line) > 0:
                     old_time.append(new_line)
                     new_line = time_file.readline().strip()
+                    self._directory.files_in_dir()
                 new_files = self._directory._files
                 new_index = []
                 i = 0
@@ -161,12 +186,16 @@ if __name__ == "__main__":
     directory.files_in_dir()
     anti_virus = AntiVirus(directory, 'index.txt', 'time.txt')
     anti_virus.add_to_index()
-    a = input('czy?')
-    if a == 'a':
-        anti_virus.update_index()
-        anti_virus.fast_scan()
-    print('Done')
-    b = input('czy?')
-    if b == 'b':
-        anti_virus.full_scan()
+    end = 0
+    while end != 'end':
+        end = input('Co chcesz zrobić?\n1. Zaktualizować pliki\n2. Pełny skan\n3. Szybki skan\n4. Zakończ\n')
+        if end == '1':
+            anti_virus.update_index()
+        elif end == '2':
+            anti_virus.full_scan()
+        elif end == '3':
+            anti_virus.fast_scan()
+        elif end == '4':
+            end = 'end'
+
 
