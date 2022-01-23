@@ -1,4 +1,6 @@
 import os
+import argparse
+import sys
 
 
 class Directory:
@@ -149,16 +151,17 @@ class AntiVirus:
         return new_lines
 
 
-if __name__ == "__main__":
-    directory = Directory("test_folder")
+def main(arguments):
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--directory', default='test_folder')
+    args = parser.parse_args()
+    directory = Directory(args.directory)
     directory.files_in_dir()
-    anti_virus = AntiVirus(directory, "index.txt")
+    anti_virus = AntiVirus(directory, 'index.txt')
     anti_virus.add_to_index()
     end = 0
     while end != "end":
-        end = input(
-            "Co chcesz zrobić?\n1. Zaktualizować pliki\n2. Pełny skan\n3. Szybki skan\n4. Zakończ\n"
-        )
+        end = input("Co chcesz zrobić?\n1. Zaktualizować pliki\n2. Pełny skan\n3. Szybki skan\n4. Zakończ\n")
         if end == "1":
             anti_virus.update_index()
         elif end == "2":
@@ -171,3 +174,7 @@ if __name__ == "__main__":
             end = "end"
         else:
             print("Podaj prawidłowy numer!")
+
+
+if __name__ == "__main__":
+    main(sys.argv)
