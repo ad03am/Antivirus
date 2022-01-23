@@ -4,6 +4,7 @@ Antywirus ma 3 funkcje, które wybieramy wpisując odpowiadający im numer:
 1. Aktualizacja indeksu plików – ręczna aktualizacja indeksu plików
 2. Pełny skan – skanuje wszystkie pliki w folderze i usuwa z nich wirusy o ile takie występują
 3. Szybki skan – skanuje nowe lub zmodyfikowane pliki w folderze i usuwa z nich wirusy o ile takie występują
+
 Opis programu:
 Najważniejszą częścią programu jest usuwanie wirusa z plików. Polega ono na usunięciu z pliku linijek zwierających wirusa
 (jest nim linijka „tojestwirus”). Program ma dwie funkcje wyszukiwania zainfekowanych plików. Pierwszą z nich jest
@@ -12,7 +13,10 @@ Drugą opcją jest przeskanowanie tylko tych plików, których hash wskazuje na 
 od ostatniego skanowania lub są to nowe pliki. Program rozpoznaje stan pliku na podstawie daty ostatniej modyfikacji.
 Jeżeli data modyfikacji pliku nie zmieniła się od czasu ostatniej aktualizacji, to jego stan również się nie zmienia.
 Wszystkie dane dotyczące plików są przechowywane w indeksie. 
+
 Przebieg prac:
-Projekt zacząłem od utworzenia funkcji usuwającej wirusa z pliku. Następnie rozszerzyłem jej działanie do całego folderu. Następnym krokiem było utworzenie indeksu plików. Dzięki temu mogłem przejść do tworzenia funkcji odpowiadającej za szybkie skanowanie, która była zależna od hashu pliku. Ostatnim elementem projektu było napisanie prostego interfejsu do obsługi programu. 
+Projekt zacząłem od utworzenia funkcji usuwającej wirusa z pliku. Następnie rozszerzyłem jej działanie do całego folderu.
+Następnym krokiem było utworzenie indeksu plików. Dzięki temu mogłem przejść do tworzenia funkcji odpowiadającej za szybkie
+skanowanie, która była zależna od hashu pliku. Ostatnim elementem projektu było napisanie prostego interfejsu do obsługi programu. 
 
 
