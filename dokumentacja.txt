@@ -19,6 +19,6 @@ Projekt zacząłem od utworzenia funkcji usuwającej wirusa z pliku. Następnie 
 Następnym krokiem było utworzenie indeksu plików. Dzięki temu mogłem przejść do tworzenia funkcji odpowiadającej za szybkie
 skanowanie, która była zależna od hashu pliku. Ostatnim elementem projektu było napisanie prostego interfejsu do obsługi programu.
 Do testów użyłem dwóch folderów. W pierwszym z nich tworzyłem zmiany na bieżąco aby sprawdzić wszystkie możliwości typu dodanie
-nowych plików, usunięcie lub zmiana już istniejących itp. Drugiego folderu użyłem do sprawdzenia działania najprostszych funkcji.
+nowych plików, usunięcie lub zmiana już istniejących itp. Drugiego folderu użyłem do sprawdzenia działania podstawowych funkcji.
 
 
