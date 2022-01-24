@@ -12,6 +12,7 @@ class Directory:
         return self._path
 
     def files_in_dir(self):
+        # funkcja dodająca nazwy plików do zmiennej
         self._files = os.listdir(f"{self._path}")
         self._files.sort()
         return self._files
@@ -29,7 +30,7 @@ class AntiVirus:
         return self._index
 
     def full_scan(self):
-        # files = os.listdir(f'{self._directory}')
+        # funkcja odpowiadająca za skanowanie wszystkich plików w folderze
         files = self._directory._files
         for i in files:
             self.remove(i, "tojestwirus")
@@ -42,7 +43,7 @@ class AntiVirus:
                 index_file.write(f"{ind}\n")
 
     def fast_scan(self):
-        # files = os.listdir(f'{self._directory}')
+        # funkcja odpowiadająca za skanowanie nowych i zmodyfikowanych plików w folderze
         index = []
         with open(f"{self._index}", "r") as index_file:
             line = index_file.readline().strip()
@@ -64,7 +65,7 @@ class AntiVirus:
                     index_file.write(f"{ind}\n")
 
     def add_to_index(self):
-        # dodać scieżki, stan pliku i hash
+        # funkcja odpowaidająca za dodanie do indeksu informacji o plikach
         files = self._directory._files
         index = []
         for i in files:
@@ -75,6 +76,7 @@ class AntiVirus:
                 index_file.write(f"{ind}\n")
 
     def update_index(self):
+        # funkcja odpowaidająca za aktualizacje indeksu
         with open(f"{self._index}", "r") as index_file:
             old_files = []
             old_time = []
@@ -135,6 +137,7 @@ class AntiVirus:
                     index_file.write(f"{ind}\n")
 
     def remove(self, file, virus):
+        # funkcja odpowaidająca za usuwanie wirusa z plików
         with open(f"{self._directory._path}/{file}", "r") as file_with_pot_vir:
             lines = file_with_pot_vir.readlines()
         with open(f"{self._directory._path}/{file}", "w") as file_without_vir:
@@ -143,6 +146,7 @@ class AntiVirus:
                     file_without_vir.write(line)
 
     def file_lines(self, file):
+        # funkcja zwracająca wszystkie linijki z pliku
         with open(f"{self._directory._path}/{file}", "r") as file_with_pot_vir:
             lines = file_with_pot_vir.readlines()
         new_lines = []

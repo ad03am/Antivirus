@@ -28,6 +28,7 @@ def test_fast_scan():
 
 
 def test_files_in_dir():
+    # test sprawdzający dodawanie nazw plików do zmiennej
     directory = Directory('test_folder_2')
     files = directory.files_in_dir()
     assert files == ['test_file1.txt', 'test_file2.txt',
@@ -35,6 +36,7 @@ def test_files_in_dir():
 
 
 def test_index():
+    # test sprawdzający tworzenie indeksu
     directory = Directory('test_folder_2')
     directory.files_in_dir()
     anti_virus = AntiVirus(directory, 'index2.txt')
@@ -48,6 +50,7 @@ def test_index():
 
 
 def test_update_index():
+    # test sprawdzający aktualizacje indeksu
     directory = Directory('test_folder_2')
     directory.files_in_dir()
     anti_virus = AntiVirus(directory, 'index2.txt')
